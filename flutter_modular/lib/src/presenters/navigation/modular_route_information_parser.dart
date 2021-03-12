@@ -88,8 +88,8 @@ class ModularRouteInformationParser extends RouteInformationParser<ModularRoute>
             customTransition: route.customTransition,
           );
         }
-        if (router.module != null) {
-          Modular.bindModule(router.module!, uri.path);
+        if (route.module != null && route.routerName == uri.path) {
+          Modular.bindModule(route.module!, uri.path);
         }
         return router;
       }
